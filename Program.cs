@@ -12,7 +12,7 @@ namespace Summative_1_6___Cansion_Dice_Game
  
             int backAccount = 100;
             int playerBet;
-            int rollcount = 0;
+            int totalCount = 0;
 
             bool done = false;
 
@@ -27,11 +27,17 @@ namespace Summative_1_6___Cansion_Dice_Game
             while (!done)
             {
 
-                Console.WriteLine("You've got $" + backAccount + " in your account.");
+                Console.WriteLine("You've got $" + (backAccount + totalCount) + " in your account.");
 
                 Console.WriteLine();
 
                 Console.WriteLine("Enter an amount of how much do you want to bet.");
+                while (int.TryParse(Console.ReadLine(), out playerBet));
+                {
+
+                    Console.WriteLine("Invaild input, for it not being a number.");
+                
+                }
 
 
                 int.TryParse(Console.ReadLine(), out playerBet);
@@ -56,26 +62,44 @@ namespace Summative_1_6___Cansion_Dice_Game
                 {
 
                     Console.WriteLine("Rolled Doubles");
+
                     Console.WriteLine("Bet is $" + playerBet + ", the player wins $" + (playerBet * 2) + " for a total of $" + (backAccount + playerBet * 2) + " in your bank.");
+                    totalCount += playerBet * 2;
+
 
                 }
 
+                if (die1.Roll != die2.Roll)
+                {
+
+                    Console.WriteLine("Didn't Rolld Doubles");
+
+                    Console.WriteLine("Bet is $" + playerBet + ", the player wins $" + (playerBet / 2) + " for a total of $" + (backAccount + playerBet / 2) + " in your bank.");
+
+                    totalCount += playerBet / 2 ;
+
+
+                }
+                
+                
                 if ((die1.Roll + die2.Roll) % 2 == 0)
                 {
-                    Console.WriteLine("Rolled an Even Sum");
+                    Console.WriteLine("Rolled an Even/Odd Sum");
 
                     Console.WriteLine("Bet is $" + playerBet + ", the player wins $" + (playerBet) + " for a total of $" + (backAccount + playerBet) + " in your bank.");
 
+                    totalCount += playerBet;
+
                 }
 
-                else 
-                {
+                //else
+                //{
 
-                    Console.WriteLine("You've lost your bet, hope you come back again for another time.");
-                    Console.WriteLine("And you've made in total $" + (backAccount - playerBet)+ ".");
-                    done = true;
-             
-                }
+                //    Console.WriteLine("You've lost your bet, hope you come back again for another time.");
+                //    Console.WriteLine("And you've made in total $" + totalCount + (backAccount - playerBet) + ".");
+                //    done = true;
+
+                //}
 
 
 
