@@ -27,20 +27,21 @@ namespace Summative_1_6___Cansion_Dice_Game
             while (!done)
             {
 
-                Console.WriteLine("You've got $" + (backAccount + totalCount) + " in your account.");
+                //Console.WriteLine("You've got $" + (backAccount + totalCount) + " in your account.");
 
                 Console.WriteLine();
 
+
                 Console.WriteLine("Enter an amount of how much do you want to bet.");
-                while (int.TryParse(Console.ReadLine(), out playerBet));
-                {
 
-                    Console.WriteLine("Invaild input, for it not being a number.");
-                
-                }
+                //while (!int.TryParse(Console.ReadLine(), out playerBet));
+                //{
 
+                //    Console.WriteLine("Invaild, please enter in a number this time.");
 
-                int.TryParse(Console.ReadLine(), out playerBet);
+                //}                                                                   I can't understand how this is not working as wll as it should.
+
+                int.TryParse(Console.ReadLine(), out playerBet); // Using this line of code only temporarily (Becuase I can't solve the problems that I'm facing right now.)
 
                 Console.WriteLine();
 
@@ -63,8 +64,8 @@ namespace Summative_1_6___Cansion_Dice_Game
 
                     Console.WriteLine("Rolled Doubles");
 
-                    Console.WriteLine("Bet is $" + playerBet + ", the player wins $" + (playerBet * 2) + " for a total of $" + (backAccount + playerBet * 2) + " in your bank.");
-                    totalCount += playerBet * 2;
+                    Console.WriteLine("Bet is $" + playerBet + ", the player wins $" + (playerBet * 2) + " for a total of $" + (backAccount + playerBet* 2) + " in your bank.");
+                    //totalCount = playerBet * 2;
 
 
                 }
@@ -76,7 +77,7 @@ namespace Summative_1_6___Cansion_Dice_Game
 
                     Console.WriteLine("Bet is $" + playerBet + ", the player wins $" + (playerBet / 2) + " for a total of $" + (backAccount + playerBet / 2) + " in your bank.");
 
-                    totalCount += playerBet / 2 ;
+                    //totalCount += playerBet / 2 ;
 
 
                 }
@@ -88,7 +89,7 @@ namespace Summative_1_6___Cansion_Dice_Game
 
                     Console.WriteLine("Bet is $" + playerBet + ", the player wins $" + (playerBet) + " for a total of $" + (backAccount + playerBet) + " in your bank.");
 
-                    totalCount += playerBet;
+                    //totalCount += playerBet;
 
                 }
 
@@ -99,12 +100,10 @@ namespace Summative_1_6___Cansion_Dice_Game
                 //    Console.WriteLine("And you've made in total $" + totalCount + (backAccount - playerBet) + ".");
                 //    done = true;
 
-                //}
-
-
+                //}           Also, can not understand on what to fix here.
 
             }
-           
+
         }
     }
 }
